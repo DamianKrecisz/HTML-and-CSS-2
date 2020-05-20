@@ -1,0 +1,40 @@
+
+
+html {
+    overflow-y: scroll;
+}
+
+
+@media (min-width: 992px) {
+    .carousell {
+        max-width: 80vw;
+        margin: 0 auto;
+    }
+}
+
+.carousel-cell {
+    width: 100%;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+
+}
+
+/* cell number */
+.carousel-cell:before {
+    display: block;
+    text-align: center;
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+}
+
+.flickity-page-dots {
+    bottom: 0 !important;
+    position: sticky !important;
+    margin-bottom: 2% !important;
+}
+
+.flickity-viewport {
+    height: 100%;
+}

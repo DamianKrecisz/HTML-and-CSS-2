@@ -1,0 +1,1006 @@
+//colors
+$color_froly_approx: rgb(231, 129, 130);
+$color_froly_94_approx: rgba(231, 129, 130, 0.94);
+$color_buff_94_approx: rgba(239, 216, 137, 0.94);
+$white: #ffffff;
+$color_sweet_corn_approx: #fce38a;
+$color_mine_shaft_approx: #333333;
+$color_geraldine_approx: #f38181;
+$color_martini_approx: #999999;
+$color_buff_80_approx: rgba(239, 216, 137, 0.80);
+$color_riptide_approx: #95e1d3;
+$color_mercury_85_approx: rgba(233, 233, 233, 0.85);
+$color_nobel_approx: #b3b3b3;
+$color_alabaster_approx: #f8f8f8;
+$color_dove_gray_approx: #6d6d6d;
+$color_pastel_green_85_approx: rgba(120, 216, 107, 0.85);
+$color_sky_blue_85_approx: rgba(109, 208, 238, 0.85);
+$color_silver_approx: #cccccc;
+$color_mercury_approx: #e7e7e7;
+
+//fonts
+$font_0: Montserrat;
+$font_1: Kaushan Script;
+$font_2: Roboto;
+
+$breakpoints: ('xsmall': (max-width: 414px),
+    'small': (max-width: 767px),
+    'medium': (max-width: 992px),
+    'large': (max-width:1290px)) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+    // If the key doesn't exist in the map
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        +"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+
+* {
+    text-decoration: none;
+    scroll-behavior: smooth;
+
+}
+
+
+.gradient {
+    background: $color_froly_approx;
+    background: linear-gradient(180deg, $color_froly_94_approx 0, $color_buff_94_approx 100%);
+    opacity: 0.5;
+}
+
+header {
+    background-image: linear-gradient(180deg, $color_froly_94_approx 0, $color_buff_94_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/header/top-img.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.header__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+.header__top.scrolled {
+    position: fixed;
+    width: 100%;
+    height: 6vh;
+    background-color: #fff !important;
+    transition: background-color 600ms linear;
+    box-shadow: 0px 4px 7px #777;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 0px;
+    justify-content: space-around;
+    z-index: 9;
+
+    .top-logo {
+        a {
+            color: black;
+        }
+    }
+
+    li {
+        color: black;
+    }
+
+    .burger__patty {
+        background-color: black;
+    }
+
+    .nav_icon {
+        display: none;
+    }
+}
+
+.container {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.top-logo {
+    a{color:$white}
+    font-family: $font_0;
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.burger {
+    display: none;
+}
+
+@include respond-to('medium') {
+    .burger {
+        display: inline-block;
+    }
+
+    .header__top nav {
+        display: none;
+    }
+}
+
+nav a {
+    display: inline-block;
+    color: $white;
+    font-family: $font_0;
+    font-size: 1.063rem;
+    font-weight: 400;
+    margin: 0 20px;
+
+    &:hover {
+        color: $color_sweet_corn_approx;
+        border-bottom: 3px solid $color_sweet_corn_approx;
+        transition: 0.1s;
+    }
+}
+
+/* SECTIONS */
+
+.header {
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 70vh;
+
+
+        &-span1 {
+            color: $white;
+            font-family: $font_1;
+            font-size: 4.1vw;
+            font-weight: 400;
+
+            @include respond-to('small') {
+                font-size: 9.1vw;
+            }
+
+            @include respond-to('large') {
+                font-size: 8.1vw;
+            }
+        }
+
+        &-span2 {
+            color: $white;
+            font-family: $font_0;
+            font-size: 8.4vw;
+            font-weight: 800;
+            line-height: 15vh;
+            text-transform: uppercase;
+
+            @include respond-to('small') {
+                font-size: 15.4vw;
+                line-height: 12vh;
+            }
+
+            @include respond-to('large') {
+                font-size: 12.4vw;
+            }
+        }
+    }
+
+
+    &__block {
+        width: 60px;
+        height: 3px;
+        background-color: $white;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            width: 160px;
+            height: 40px;
+            border: 3px solid $white;
+            color: $white;
+            font-family: $font_0;
+            font-size: 0.875rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            &:hover {
+                color: $color_sweet_corn_approx;
+                border: 3px solid $color_sweet_corn_approx;
+                border-radius: 20px;
+                transition: 0.3s;
+            }
+        }
+    }
+}
+
+.section {
+
+    &-title {
+        color: $color_mine_shaft_approx;
+        font-family: $font_1;
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-top: 80px;
+    }
+
+    &-second-title {
+        color: $color_mine_shaft_approx;
+        font-family: $font_0;
+        font-size: 1.875rem;
+        font-weight: 800;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    &-block {
+        width: 60px;
+        height: 3px;
+        background-color: $color_geraldine_approx;
+        margin-top: 20px;
+    }
+
+    &-description {
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.938rem;
+        line-height: 24px;
+        text-align: center;
+        margin-top: 20px;
+        max-width: 80vw;
+        ;
+    }
+}
+
+.WhatWeDo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 80vw;
+        margin-bottom: 5%;
+
+        @include respond-to('large') {
+            justify-content: space-around;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__cards-title {
+        display: none;
+        color: $white;
+        font-family: $font_0;
+        font-size: 1.125rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        div {
+            margin: 10px;
+        }
+    }
+
+
+    &__card-1 {
+        margin-top: 5%;
+        position: relative;
+
+        &:hover .WhatWeDo__cards-title {
+            background-image: linear-gradient(180deg, $color_froly_94_approx 0, $color_buff_80_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/WhatWeDo/img-1.png");
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+
+    }
+
+    &__card-2 {
+        margin-top: 5%;
+        position: relative;
+
+        &:hover .WhatWeDo__cards-title {
+            background-image: linear-gradient(180deg, $color_froly_94_approx 0, $color_buff_80_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/WhatWeDo/img-2.png");
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+
+        }
+    }
+
+    &__card-3 {
+        margin-top: 5%;
+        position: relative;
+
+        &:hover .WhatWeDo__cards-title {
+            background-image: linear-gradient(180deg, $color_froly_94_approx 0, $color_buff_80_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/WhatWeDo/img-3.png");
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+
+        }
+    }
+}
+
+.numbers {
+    background-color: $color_riptide_approx;
+    color: $white;
+
+
+    &-container {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        max-width: 80vw;
+        margin: auto;
+        padding: 5% 0 5% 0;
+
+        @include respond-to('medium') {
+            justify-content: space-around;
+        }
+    }
+
+    &__card {
+        font-family: $font_0;
+        text-transform: uppercase;
+        width: 170px;
+        margin: auto;
+    }
+
+    &__card-number {
+        font-size: 4.5rem;
+        font-weight: 800;
+    }
+
+    &__card-title {
+        font-size: 0.875rem;
+    }
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &__container {
+        max-width: 80vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 5%;
+
+
+        &-item {
+            width: 400px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__item {
+        margin-left: 29px;
+
+        &-title {
+            color: $color_mine_shaft_approx;
+            font-family: $font_0;
+            font-size: 0.875rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+
+
+        &-description {
+            color: $color_martini_approx;
+            font-family: $font_2;
+            font-size: 0.938rem;
+            font-weight: 400;
+            line-height: 24px;
+        }
+    }
+}
+
+.unique {
+    background-image: linear-gradient(180deg, $color_mercury_85_approx 0, $color_mercury_85_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/unigue/background.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__img {
+        margin-top: 20px;
+        margin-bottom: -91px;
+
+        @include respond-to('small') {
+            width: 80vw;
+            margin-bottom: -88px;
+        }
+
+        @include respond-to('xsmall') {
+            margin-bottom: -48px;
+        }
+    }
+}
+
+.panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 70px auto;
+    width: 100%;
+    max-width: 80vw;
+
+    &-description {
+        color: $color_nobel_approx;
+        font-family: $font_2;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 36px;
+        font-style: italic;
+
+        @include respond-to('medium') {
+            font-size: 1rem;
+            line-height: 20px;
+        }
+    }
+
+    &-sign {
+        margin-top: 15px;
+        color: $color_mine_shaft_approx;
+        font-family: $font_1;
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img {
+            width: 60px;
+            height: 3px;
+        }
+
+        &-by {
+            margin-left: 10px;
+        }
+    }
+
+    &-left {
+        align-items: center;
+        padding-left: 5%;
+
+        @include respond-to('xsmall') {
+            img {
+                width: 30vw;
+            }
+        }
+    }
+
+    &-right {
+        padding-right: 5%;
+
+        margin-left: 5%;
+    }
+
+
+}
+
+.meet {
+    background-color: $color_alabaster_approx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__people {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        max-width: 80vw;
+        margin-bottom: 2%;
+
+    }
+}
+
+.people {
+    margin-top: 20px;
+
+    &-title {
+        color: $color_mine_shaft_approx;
+        font-family: $font_0;
+        font-size: 0.875rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+    }
+
+    &-position {
+        color: $color_dove_gray_approx;
+        font-family: $font_2;
+        font-size: 0.938rem;
+        line-height: 24px;
+    }
+
+    &-opinion {
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.938rem;
+        line-height: 24px;
+    }
+
+    .block {
+        margin-bottom: 5px;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.member {
+
+    &-title {
+        color: $color_mine_shaft_approx;
+        font-family: $font_0;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 800;
+        margin: 31px 0 15px;
+    }
+
+    &-position {
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.938rem;
+        line-height: 24px;
+        text-align: center;
+    }
+}
+
+.work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+
+        img {
+            width: 100%;
+        }
+
+        @include respond-to('small') {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__galery-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__gallery-1 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__gallery-2 {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.clients {
+    background-image: linear-gradient(180deg, $color_mercury_85_approx 0, $color_mercury_85_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/clients/background.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__people {
+        max-width: 80vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-bottom: 5%;
+
+        @include respond-to('large') {
+            justify-content: center;
+        }
+
+    }
+
+    &__people-person {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        max-width: 515px;
+        margin-top: 5%;
+
+        img {
+            margin-right: 30px;
+        }
+
+        @include respond-to('large') {
+            margin-top: 15%;
+        }
+    }
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 80vw;
+        ;
+        margin-top: 20px;
+
+        @include respond-to('medium') {}
+    }
+
+    &__card {
+        max-width: 380px;
+
+        @include respond-to('small') {
+            max-width: 300px;
+        }
+    }
+
+    &__picture {
+        position: relative;
+
+        img {
+            @include respond-to('small') {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__date {
+        background-color: $color_riptide_approx;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        width: 40px;
+        height: 50px;
+        margin: 10px 0;
+        position: absolute;
+        top: 170px;
+        left: -10px;
+
+        @include respond-to('small') {
+            top: 110px;
+
+        }
+    }
+
+    &__day {
+        font-family: $font_0;
+        font-size: 1.563rem;
+        font-weight: 800;
+    }
+
+    &__mounth {
+        font-family: $font_2;
+        font-size: 0.813rem;
+    }
+
+    &__title {
+        color: $color_mine_shaft_approx;
+        font-family: $font_0;
+        font-size: 0.875rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+        margin: 10px 0;
+    }
+
+    &__description {
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.938rem;
+        line-height: 24px;
+        margin: 10px 0 20px;
+
+        img {
+            @include respond-to('small') {
+                width: 200px;
+            }
+        }
+    }
+
+    &__stats {
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.813rem;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 100px;
+
+        img {
+            margin-right: 7px;
+        }
+    }
+
+    &__views {
+        margin-right: 20px;
+    }
+}
+
+.map {
+    background-image: linear-gradient(180deg, $color_mercury_85_approx 0, $color_mercury_85_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/map/map.png");
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 57px;
+    }
+
+    &:hover {
+        background-image: linear-gradient(180deg, $color_pastel_green_85_approx 0, $color_sky_blue_85_approx 100%), url("https://raw.githubusercontent.com/Nespire/Portfolio-2/master/images/map/map.png");
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    background-color: $color_alabaster_approx;
+    margin: 0 auto;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: $color_alabaster_approx;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 80vw;
+    }
+
+    &-1 {
+        width: 480px;
+
+        @include respond-to('small') {
+            text-align: center;
+        }
+    }
+
+    &-2 {
+        width: 360px;
+
+
+    }
+
+    &-3 {
+        width: 310px;
+    }
+
+    &__title {
+        color: $color_silver_approx;
+        font-family: $font_0;
+        font-size: 2.875rem;
+        margin: 45px 0 30px;
+    }
+
+    &__description {
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.938rem;
+        line-height: 24px;
+        max-width: 80vw;
+        margin-bottom: 5%;
+        margin-right: 5%;
+
+        @include respond-to('small') {
+            margin-right: 0;
+        }
+    }
+
+    &__followers {
+        font-family: $font_0;
+        font-size: 0.875rem;
+        font-weight: 400;
+        margin-bottom: 8px;
+
+        span {
+            font-family: $font_0;
+            font-size: 1.125rem;
+            font-weight: 800;
+            margin-right: 5px;
+        }
+    }
+
+    &__follow {
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.938rem;
+        line-height: 24px;
+        margin-top: 8px;
+        margin-bottom: 30px;
+
+        img {
+            margin-left: 15px;
+        }
+    }
+
+    &__subscribe {
+        @include respond-to('medium') {
+            text-align: center;
+        }
+
+        input {
+            width: 230px;
+            height: 40px;
+            border: 1px solid $color_mercury_approx;
+            background-color: $white;
+            border: 0;
+            padding: 0;
+            margin-right: -4px;
+        }
+
+        ::placeholder {
+            padding-left: 5%;
+        }
+
+        button {
+            width: 150px;
+            height: 40px;
+            background-color: $color_riptide_approx;
+            color: $white;
+            font-size: 0.875rem;
+            font-weight: 800;
+            border: 0;
+
+            @include respond-to('medium') {
+                margin-top: 5%;
+            }
+        }
+    }
+
+    &__blogs--title {
+        color: $color_mine_shaft_approx;
+        font-family: $font_0;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-weight: 800px;
+    }
+
+    &__blog-title {
+        color: $color_mine_shaft_approx;
+        font-family: $font_0;
+        font-size: 0.75rem;
+        line-height: 18px;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
+
+    &__blog-date {
+        height: 12px;
+        color: $color_martini_approx;
+        font-family: $font_2;
+        font-size: 0.813rem;
+        line-height: 24px;
+    }
+
+    &__viewmore {
+        color: $color_mine_shaft_approx;
+        font-family: $font_2;
+        font-size: 0.813rem;
+        line-height: 24px;
+        margin-top: 10px;
+        font-style: italic;
+    }
+
+    &__bottom {
+        font-weight: 400;
+        color: $color_mine_shaft_approx;
+        font-family: $font_0;
+        font-size: 0.875rem;
+        font-weight: 800;
+        background-color: $color_alabaster_approx;
+        text-align: center;
+        margin: auto;
+        padding: 20px;
+
+        span {
+            color: $color_geraldine_approx;
+        }
+    }
+
+    &__blog {
+        display: flex;
+        flex-direction: row;
+        margin: 0 80px 30px 0;
+
+        @include respond-to('medium') {
+            margin: 0;
+            padding-top: 5%;
+            text-align: center;
+        }
+    }
+
+    &__instagram--images {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        img {
+            width: 29%;
+            margin: 4px;
+        }
+    }
+
+    &__blog-right {
+        margin-left: 20px;
+    }
+}
