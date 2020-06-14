@@ -74,8 +74,9 @@ header {
     align-items: center;
     padding-top: 20px;
     margin: 0 auto;
-    ul{
-        display:flex;
+
+    ul {
+        display: flex;
         flex-direction: row;
     }
 }
@@ -94,10 +95,9 @@ header {
     justify-content: space-around;
     z-index: 9;
 
-    .top-logo {
-        a {
-            color: black;
-        }
+    a {
+        color: black;
+        color: black;
     }
 
     li {
@@ -119,7 +119,10 @@ header {
 }
 
 .top-logo {
-    a{color:$white}
+    a {
+        color: $white
+    }
+
     font-family: $font_0;
     font-size: 1.875rem;
     font-weight: 700;
@@ -142,7 +145,7 @@ header {
 
 nav a {
     display: inline-block;
-    color: $white;
+    color: white;
     font-family: $font_0;
     font-size: 1.063rem;
     font-weight: 400;

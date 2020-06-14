@@ -69,7 +69,8 @@ header {
   z-index: 9;
 }
 
-.header__top.scrolled .top-logo a {
+.header__top.scrolled a {
+  color: black;
   color: black;
 }
 
@@ -116,7 +117,7 @@ header {
 
 nav a {
   display: inline-block;
-  color: #ffffff;
+  color: white;
   font-family: Montserrat;
   font-size: 1.063rem;
   font-weight: 400;
