@@ -74,6 +74,10 @@ header {
     align-items: center;
     padding-top: 20px;
     margin: 0 auto;
+    ul{
+        display:flex;
+        flex-direction: row;
+    }
 }
 
 .header__top.scrolled {
