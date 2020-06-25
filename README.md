@@ -16,6 +16,7 @@ Live: https://damiankrecisz.github.io/HTML-and-CSS-2/
  
  </div>
 
+&nbsp;
 
 
  <div align="center">
