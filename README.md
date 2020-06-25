@@ -10,8 +10,7 @@ Live: https://damiankrecisz.github.io/HTML-and-CSS-2/
  
  
  
- <img src="https://i.ibb.co/znfSCv0/website2.png" alt="website2" border="0">
- 
+<img src="https://i.ibb.co/HgzVfN0/website3.png" alt="website3" border="0"> 
  
  
  </div>
@@ -23,8 +22,7 @@ Live: https://damiankrecisz.github.io/HTML-and-CSS-2/
  
  
  
- <img src="https://i.ibb.co/yNWXyGY/website22.png" alt="website22" border="0">
- 
+<img src="https://i.ibb.co/sFfJ05N/website33.png" alt="website33" border="0"> 
  
  
  
