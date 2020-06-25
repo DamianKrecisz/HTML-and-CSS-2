@@ -1,7 +1,7 @@
 
 # # MoGo
 
-Simple website made from psd project with JavaScript animations
+Simple website made from psd project created in HTML, SCSS and JavaScript
 
 Live: https://damiankrecisz.github.io/HTML-and-CSS-2/
  
